@@ -33,7 +33,18 @@ int main()
         arr[i].unitprice = arr[i].price/arr[i].weight;
     }
 
-    sort (arr, arr+n, sortItem);
+
+    for(int i=0; i<n; i++)
+    {
+        int min =i;
+        for (int j=i+1; j<n; j++)
+        {
+            if (arr[j].unitprice>arr[min].unitprice)
+                min =j;
+        }
+        swap (arr[i], arr[min]);
+    }
+
 
     for(int i=0; i<n; i++)
     {
@@ -57,3 +68,4 @@ int main()
     cout<<"Total profit: "<<profit<<endl;
 
 }
+
